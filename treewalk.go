@@ -34,6 +34,8 @@ func LoadTreeConfig(file string) (config TreeConfig, err error) {
 	if err != nil {
 		return
 	}
+	defer f.Close()
+
 	log.WithField("file", file).Debug("loading config file")
 	return LoadTreeConfigReader(f)
 }
